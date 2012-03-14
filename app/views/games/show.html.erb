@@ -1,0 +1,47 @@
+<h1>Game</h1>
+
+<p>
+  <b>Round</b><br>
+  <%= @game.round %>
+</p>
+
+<p>
+  <b>Year</b><br>
+  <%= @game.year %>
+</p>
+
+<p>
+  <b>Winning team</b><br>
+  <%= @game.winning_team_id %>
+</p>
+
+<p>
+  <b>Winning team seed</b><br>
+  <%= @game.winning_team_seed %>
+</p>
+
+<p>
+  <b>Losing team</b><br>
+  <%= @game.losing_team_id %>
+</p>
+
+<p>
+  <b>Losing team seed</b><br>
+  <%= @game.losing_team_seed %>
+</p>
+
+<p>
+  <b>Winning team score</b><br>
+  <%= @game.winning_team_score %>
+</p>
+
+<p>
+  <b>Losing team score</b><br>
+  <%= @game.losing_team_score %>
+</p>
+
+<div class="form-actions">
+  <%= link_to 'Back', games_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_game_path(@game), :class => 'btn' %>
+  <%= link_to 'Delete', game_path(@game), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

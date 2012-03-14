@@ -1,0 +1,34 @@
+<h1>Games</h1>
+<div class="pull-right">
+  <%= link_to 'New', new_game_path, :class => 'btn btn-primary' %>
+</div>
+<%= will_paginate @games %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Round</th>
+      <th>Winning Team(Seed)</th>
+      <th>Score</th>
+      <th>Losing Team(Seed)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.year %></td>
+        <td><%= game.round %></td>
+        <td><%= game.winning_team.name %>(<%= game.winning_team_seed%>)  </td>
+        <td><%= game.winning_team_score %> - <%= game.losing_team_score -%>  </td>
+        <td><%= game.losing_team.name %>(<%= game.losing_team_seed%>) </td>
+        <td>
+          <%= link_to 'Show', game_path(game), :class => 'btn btn-mini' %>
+          <%= link_to 'Edit', edit_game_path(game), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', game_path(game), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @games %>

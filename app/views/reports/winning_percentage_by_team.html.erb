@@ -1,0 +1,17 @@
+<%= form_tag '/reports/do_winning_percentage_by_team', :method => :post %>
+<h2>Winning Percentage by Team by Round</h2>
+<p>
+  <label>Team 1</label><br/>
+  <%= select_tag :team_one_id, options_from_collection_for_select(@teams, 'id', 'name') %>
+</p>
+<p>
+  <label>Team 2</label><br/>
+  <%= select_tag :team_two_id, options_from_collection_for_select(@teams, 'id', 'name') %>
+</p>
+<p>
+  <label>Round</label><br/>
+  <%= select_tag :round, options_for_select([['1','1'],['2','2'],['3','3']]) %>
+</p>
+
+<%= submit_tag 'Submit' %>
+</form>

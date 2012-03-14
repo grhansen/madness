@@ -1,0 +1,31 @@
+<h2>Winning Percentage by Seed in Round <%= @round -%> </h2>
+<div style="float: left; width: 25%">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="3" style="text-align: center;"><%= @team_1.name -%></th>
+        <th colspan="3" style="text-align: center;"><%= @team_2.name -%></th>
+      </tr>
+      <tr>
+        <th>Seed</th>
+        <th>Record</th>
+        <th>Percentage</th>
+        <th>Seed</th>
+        <th>Record</th>
+        <th>Percentage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for i in 0..15 %>
+        <tr>
+          <td style='text-align: center;'><%= i + 1 -%></td>
+          <td style='text-align: center;'><%= @results[:wins_1][i] -%> - <%= @results[:losses_1][i] -%></td>
+          <td style='text-align: center;'><%= number_with_precision(compute_percentage(@results[:wins_1], @results[:losses_1], i) * 100, :precision => 2) -%>%</td>
+          <td style='text-align: center;'><%= i + 1 -%></td>
+          <td style='text-align: center;'><%= @results[:wins_2][i] -%> - <%= @results[:losses_2][i] -%></td>
+          <td style='text-align: center;'><%= number_with_precision(compute_percentage(@results[:wins_2], @results[:losses_2], i) * 100, :precision => 2) -%>%</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

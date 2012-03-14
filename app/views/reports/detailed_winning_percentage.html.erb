@@ -1,0 +1,31 @@
+<h1>Detailed Winning Percentage</h1>
+<h2><%= @round %> Round</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Seed</th>
+      <th>Opponent</th>
+      <th>Winning %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% 1.upto(16) do |seed| 
+      win_array = @results[seed]
+      if !win_array.nil?
+        win_array.each {|record| %>
+          <tr>
+            <td><%= seed %></td>
+            <% record.each_pair { |opponent, percentage| %>
+              <td><%= opponent %></td>
+              <td><%= number_with_precision( percentage, {:precision => 2} ) %></td>
+            <%  } %>
+          <%  } %>
+        </tr>
+        <tr>
+          <td colspan="3">&nbsp;</td>
+        </tr>
+      <%  end
+    end %>
+  </tbody>
+</table>

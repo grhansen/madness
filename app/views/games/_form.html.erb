@@ -1,0 +1,19 @@
+<%= simple_form_for @game, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Game</legend>
+
+    <%= f.input :round, :collection => 1..3, :prompt => false %>
+    <%= f.input :year, :collection => year_select(), :prompt => false %>
+    <%= f.input :winning_team_id, :collection => @teams, :label_method => :name, :value_method => :id, :prompt => false %>
+    <%= f.input :winning_team_seed, :collection => 1..16, :prompt => false %>
+    <%= f.input :losing_team_id, :collection => @teams, :label_method => :name, :value_method => :id, :prompt => false %>
+    <%= f.input :losing_team_seed, :collection => 1..16, :prompt => false %>
+    <%= f.input :winning_team_score %>
+    <%= f.input :losing_team_score %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', games_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,22 @@
+<fieldset style="width: 45%;">
+  <legend>Reporting</legend>
+  <ul>
+    <li><%= link_to('Detailed Winning Percentage by Seed (Round 1)', detailed_winning_percentage_reports_path) %></li>
+    <li><%= link_to('Detailed Winning Percentage by Seed (Round 2)', detailed_winning_percentage_reports_path(:round => 2)) %></li>
+    <li><%= link_to('Detailed Winning Percentage by Seed (Round 3)', detailed_winning_percentage_reports_path(:round => 3)) %></li>
+    <li><%= link_to('Winning Percentage by Team', winning_percentage_by_team_reports_path()) %></li>
+  </ul>
+</fieldset>
+<br/>
+<fieldset style="width: 45%;">
+  <legend>Teams</legend>
+  <ul>
+    <li><a href="/teams">Listing</a></li>
+  </ul>
+</fieldset>
+<fieldset style="width: 45%;">
+  <legend>Games</legend>
+  <ul>
+    <li><a href="/games">Listing</a></li>
+  </ul>
+</fieldset>
