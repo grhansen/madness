@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
     @team = Team.new(params[:team])
     if @team.save
       flash[:notice] = 'Team was successfully created.'
-      redirect_to :action => 'list'
+      redirect_to games_path
     else
       render :action => 'new'
     end
@@ -31,12 +31,12 @@ class TeamsController < ApplicationController
       flash[:notice] = 'Team was successfully updated.'
       redirect_to :action => 'show', :id => @team
     else
-      render :action => 'edit'
+      render games_path
     end
   end
 
   def destroy
     Team.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    redirect_to games_path
   end
 end

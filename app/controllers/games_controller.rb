@@ -16,7 +16,7 @@ class GamesController < ApplicationController
     @game = Game.new(params[:game])
     if @game.save
       flash[:notice] = 'Game was successfully created.'
-      redirect_to :action => 'list'
+      redirect_to games_path
     else
       render :action => 'new'
     end
@@ -31,7 +31,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     if @game.update_attributes(params[:game])
       flash[:notice] = 'Game was successfully updated.'
-      redirect_to :action => 'list'
+      redirect_to games_path
     else
       render :action => 'edit'
     end
@@ -39,6 +39,6 @@ class GamesController < ApplicationController
 
   def destroy
     Game.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    redirect_to games_path
   end
 end
